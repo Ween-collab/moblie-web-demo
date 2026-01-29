@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Mobile Web</title>
+<style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: #020617; color: white; overflow-x: hidden; padding-bottom: 60px; }
+
+    /* Background Video */
+    #bg-video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+        object-fit: cover;
+    }
+
+    /* Overlay để làm tối video một chút cho dễ đọc chữ */
+    .overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(2, 6, 23, 0.5); /* Độ mờ nền đen 50% */
+        z-index: -1;
+    }
+
+    /* Header */
+    .header {
+        padding: 15px;
+        text-align: center;
+        background: rgba(2, 6, 23, 0.8);
+        backdrop-filter: blur(10px);
+        font-weight: bold;
+        font-size: 18px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Banner */
+    .banner {
+        height: 160px;
+        /* Nếu không có bg.jpg, dùng tạm màu gradient */
+        background: linear-gradient(45deg, #3b82f6, #8b5cf6); 
+        border-radius: 12px;
+        margin: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: bold;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Menu grid */
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .item {
+        background: rgba(30, 41, 59, 0.8);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 14px;
+        padding: 18px 10px;
+        text-align: center;
+        font-size: 14px;
+        transition: transform 0.2s;
+    }
+    
+    .item:active { transform: scale(0.95); }
+
+    .item span {
+        display: block;
+        font-size: 26px;
+        margin-bottom: 6px;
+    }
+
+    /* Bottom nav */
+    .nav {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        display: flex;
+        background: rgba(2, 6, 23, 0.95);
+        border-top: 1px solid #1e293b;
+        padding-bottom: env(safe-area-inset-bottom);
+        z-index: 20;
+    }
+
+    .nav a {
+        flex: 1;
+        padding: 12px 0;
+        text-align: center;
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    .nav a.active { color: #38bdf8; font-weight: bold; }
+</style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="bg.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+
+    <div class="header">TRANG MOBILE</div>
+
+    <div class="banner">Banner Quảng Cáo</div>
+
+    <div class="menu">
+        <div class="item"><span>🏠</span>Trang chủ</div>
+        <div class="item"><span>🔥</span>Nổi bật</div>
+        <div class="item"><span>🎮</span>Giải trí</div>
+        <div class="item"><span>📊</span>Thống kê</div>
+        <div class="item"><span>💬</span>Hỗ trợ</div>
+        <div class="item"><span>👤</span>Tài khoản</div>
+    </div>
+
+    <div class="nav">
+        <a class="active">Home</a>
+        <a>Menu</a>
+        <a>User</a>
+    </div>
+
+</body>
+</html>
